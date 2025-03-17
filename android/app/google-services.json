@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "682676996856",
+    "project_id": "findtrainerv2",
+    "storage_bucket": "findtrainerv2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:682676996856:android:0bb0582b63ede4439b090d",
+        "android_client_info": {
+          "package_name": "com.example.find_trainer_v2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_AZYTObKQw93te7TpawWAgkz_LIFzCzI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:682676996856:android:03777af1ce104bef9b090d",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_AZYTObKQw93te7TpawWAgkz_LIFzCzI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
