@@ -185,7 +185,7 @@ class _ClientProgressState extends State<ClientProgress> {
       };
       FirebaseFirestore.instance.collection('progress').add(progressData).then((_) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Pokrok úspěšně odeslán')),
+          const SnackBar(content: Text('Můj posun úspěšně odeslán')),
         );
         // Optionally, reset the form
         _formKey.currentState!.reset();
@@ -208,7 +208,7 @@ class _ClientProgressState extends State<ClientProgress> {
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.white),
         title: const Text(
-          'Pokrok',
+          'Můj posun',
           style: TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,

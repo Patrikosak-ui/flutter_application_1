@@ -34,9 +34,9 @@ class _TrainerOverviewState extends State<TrainerOverview> {
     return Scaffold(
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.white), // added iconTheme
-        title: const Text(
-          'Progres klienta',
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        title: Text(
+          widget.clientName.split(" ").first, // Changed header to only show client's first name
+          style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         backgroundColor: Colors.teal,
       ),

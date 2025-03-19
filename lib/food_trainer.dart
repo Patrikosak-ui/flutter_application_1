@@ -22,8 +22,8 @@ class FoodTrainer extends StatelessWidget {
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.white),
         title: Text(
-          'Jídelníček pro $clientName',
-          style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold), // updated style
+          clientName.split(" ").first, // Updated title to show only client's first name
+          style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         backgroundColor: Colors.teal.shade700,
         actions: [

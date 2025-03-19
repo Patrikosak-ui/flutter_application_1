@@ -49,7 +49,7 @@ class _TrainerTrainingAddState extends State<TrainerTrainingAdd> {
     return Scaffold(
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.white),
-        title: Text('Přidat trénink pro ${widget.clientName}'),
+        title: Text(widget.clientName), // Changed to display full client name
         backgroundColor: Colors.teal.shade700,
       ),
       body: Padding(

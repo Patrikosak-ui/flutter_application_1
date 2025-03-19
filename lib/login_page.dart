@@ -17,7 +17,13 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
-  // final GoogleSignIn _googleSignIn = GoogleSignIn(); // Removed
+  final FocusNode _emailFocusNode = FocusNode();
+
+  @override
+  void initState() {
+    super.initState();
+    // Removed: auto-append listener from _emailFocusNode
+  }
 
   // Funkce pro přihlášení uživatele
   Future<void> _loginUser() async {
@@ -215,7 +221,19 @@ class _LoginPageState extends State<LoginPage> {
   }) {
     return TextFormField(
       controller: controller,
-      onChanged: onChanged,
+      focusNode: labelText == 'Email' ? _emailFocusNode : null,
+      onChanged: (value) {
+        if (labelText == 'Email' && value.length == 1 && !value.contains('@')) {
+          String newValue = value + '@';
+          controller.value = TextEditingValue(
+            text: newValue,
+            selection: TextSelection.collapsed(offset: newValue.length),
+          );
+          if (onChanged != null) onChanged(newValue);
+        } else {
+          if (onChanged != null) onChanged(value);
+        }
+      },
       decoration: InputDecoration(
         labelText: labelText,
         labelStyle: const TextStyle(color: Colors.white),
@@ -229,6 +247,7 @@ class _LoginPageState extends State<LoginPage> {
       ),
       obscureText: obscureText,
       style: const TextStyle(color: Colors.white),
+      keyboardType: labelText == 'Email' ? TextInputType.emailAddress : null,
     );
   }
 }

@@ -173,7 +173,7 @@ class _MainPageClientState extends State<MainPageClient> {
         }
 
         if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
-          return const Center(child: Text('Nenalezen trenér.'));
+          return const Center(child: Text('Vyber si svého trenéra', style: TextStyle(color: Colors.white, fontSize: 18)));
         }
 
         var trainers = snapshot.data!.docs;
@@ -290,16 +290,17 @@ class _MainPageClientState extends State<MainPageClient> {
                                     .doc(requestSnapshot.docs.first.id)
                                     .delete();
 
-                                setState(() {
-                                  trainersWithActiveRequests.remove(trainerUid);
-                                  connectedTrainers.remove(trainerUid);
-                                });
+                                if (!mounted) return; // Added mounted check
 
+                                await _checkClientStatus();
+
+                                if (!mounted) return; // Check again before using context
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   const SnackBar(content: Text('Odpojení od trenéra bylo úspěšné.')),
                                 );
                               }
                             } catch (e) {
+                              if (!mounted) return;
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(content: Text('Chyba při odpojování: $e')),
                               );
